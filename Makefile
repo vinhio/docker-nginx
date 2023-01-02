@@ -6,10 +6,12 @@ build:
 run:
 	docker run -p 80:80 vinhio/nginx:alpine
 
+release:
+	make version VERSION="latest"
+	make push VERSION="latest"
+
 version:
-	#make version VERSION="latest"
 	docker tag vinhio/nginx:alpine vinhio/nginx:$(VERSION)
 
 push:
-	#make push VERSION="latest"
 	docker push vinhio/nginx:$(VERSION)
